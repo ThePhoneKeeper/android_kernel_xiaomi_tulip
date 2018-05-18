@@ -1,4 +1,5 @@
 /* Copyright (c) 2012-2018, The Linux Foundation. All rights reserved.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -1425,6 +1426,10 @@ void extract_dci_ext_pkt(unsigned char *buf, int len, int data_source,
 		return;
 	}
 
+	if (len < (EXT_HDR_LEN + sizeof(uint8_t))) {
+		pr_err("diag: In %s invalid len: %d\n", __func__, len);
+		return;
+	}
 	version = *(uint8_t *)buf + 1;
 	if (version < EXT_HDR_VERSION)  {
 		pr_err("diag: %s, Extended header with invalid version: %d\n",
