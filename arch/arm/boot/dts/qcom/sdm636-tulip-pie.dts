@@ -18132,3 +18132,6 @@
 		};
 	};
 };
+
+
+#include "sdm636-tulip-oc.dtsi"
