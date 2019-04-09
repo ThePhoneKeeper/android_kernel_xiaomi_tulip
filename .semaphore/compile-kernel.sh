@@ -64,7 +64,7 @@ function fin() {
 #
 
 # Main environtment
-KERNEL_DIR=${HOME}/msm-4.4-tulip
+KERNEL_DIR=${HOME}/android_kernel_xiaomi_tulip
 KERN_IMG=$KERNEL_DIR/out/arch/arm64/boot/Image.gz-dtb
 ZIP_DIR=$KERNEL_DIR/AnyKernel2
 BRANCH="$(git rev-parse --abbrev-ref HEAD)"
@@ -92,7 +92,7 @@ install-package --update-new bc bash git-core gnupg build-essential \
 git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 --depth=1 stock
 
 # Clone AnyKernel2
-git clone https://github.com/rama982/AnyKernel2 -b tulip-miui
+git clone https://github.com/rama982/AnyKernel2 -b tulip-aosp
 wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/master/clang-r353983b.tar.gz
 mkdir clang && tar xzxf *.tar.gz -C clang
 
@@ -102,7 +102,7 @@ BUILD_START=$(date +"%s")
 
 tg_sendstick
 
-tg_channelcast "Genom kernel For MIUI ROM new build!" \
+tg_channelcast "Genom kernel For AOSP ROM new build!" \
 	"For device <b>TULIP</b> (Redmi Note 6 Pro)" \
 	"Using toolchain: <code>$(clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>" \
 	"At branch <code>${BRANCH}</code>" \
